@@ -1,0 +1,1 @@
+from routes.perfis import perfil_rota

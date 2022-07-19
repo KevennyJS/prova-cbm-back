@@ -1,29 +1,23 @@
 from typing import Union
 from fastapi import FastAPI
+from routes.index import perfil_rota
 
 app = FastAPI()
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
+app.include_router(perfil_rota)
 
 # TODO: rotas
-# /signos - GET
-# /tipo-sanguineos - GET
-# /instituicoes - GET
-# /competencias - GET
-# /perfis - GET
-# /perfis - POST
-# /perfis - DELETE
-# /perfis - PUT
+# /signos - GET                       => Pendente
+# /tipo-sanguineos - GET              => Pendente
+# /instituicoes - GET                 => Pendente
+# /competencias - GET                 => Pendente
+# /perfis - GET                       => OK!
+# /perfis - POST                      => OK!
+# /perfis - DELETE                    => OK!
+# /perfis - PUT                       => OK!
 
 # teste de integração
 # docker
 # docker-compose
+
+# python -m uvicorn main:app --reload
