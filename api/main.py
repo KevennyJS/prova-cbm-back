@@ -6,10 +6,11 @@ app = FastAPI()
 
 app.include_router(perfis_rota, tags=["perfis"])
 app.include_router(signos_rota, tags=["signos"])
+app.include_router(tipos_sanguineos_rota, tags=["tipos_sanguineos"])
 
 # TODO: rotas
-# /signos - GET                       => Pendente
-# /tipo-sanguineos - GET              => Pendente
+# /signos - GET                       => OK!
+# /tipo-sanguineos - GET              => OK!
 # /instituicoes - GET                 => Pendente
 # /competencias - GET                 => Pendente
 # /perfis - GET                       => OK!
