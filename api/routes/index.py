@@ -1,1 +1,2 @@
-from routes.perfis import perfil_rota
+from routes.perfis import perfis_rota
+from routes.signos import signos_rota

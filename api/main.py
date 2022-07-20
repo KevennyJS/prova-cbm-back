@@ -1,10 +1,11 @@
 from typing import Union
 from fastapi import FastAPI
-from routes.index import perfil_rota
+from routes.index import *
 
 app = FastAPI()
 
-app.include_router(perfil_rota)
+app.include_router(perfis_rota, tags=["perfis"])
+app.include_router(signos_rota, tags=["signos"])
 
 # TODO: rotas
 # /signos - GET                       => Pendente
