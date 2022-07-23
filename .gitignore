@@ -1,2 +1,14 @@
 api/venv/
 api/__pycache__/
+
+api/schemas/__pycache__/
+
+api/config/__pycache__/
+
+api/models/__pycache__/
+
+api/routes/__pycache__/
+
+api/templates/__pycache__/
+
+api/validacoes/__pycache__/
