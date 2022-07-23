@@ -1,7 +1,9 @@
 from sqlalchemy import create_engine, MetaData
-import pymysql
 
-engine = create_engine('mysql+pymysql://root:MasterOv@localhost:3306/prova_cbm', echo=True)
+user_db = 'root'
+pass_db = 'MasterOv'
+
+engine = create_engine(f'mysql+pymysql://{user_db}:{pass_db}@localhost:3306/prova_cbm', echo=True)
 
 meta = MetaData()
 
