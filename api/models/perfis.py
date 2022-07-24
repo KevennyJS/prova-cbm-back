@@ -4,8 +4,7 @@ from sql_app.database import meta
 
 perfis = Table('perfis', meta,
                Column('id', Integer, primary_key=True),
-               Column('tipos_sanguineo_id', Integer),
-               # Column('tipos_sanguineo_id', Integer, ForeignKey('tipos_sanguineos.id')),
+               Column('tipos_sanguineo_id', Integer, ForeignKey('tipos_sanguineos.id')),
                Column('signo_id', Integer, ForeignKey('signos.id')),
                Column('cpf', String(11)),
                Column('nome', String(50)),
