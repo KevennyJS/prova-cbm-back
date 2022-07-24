@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from config.db import connection
+from sql_app import connection
 
 signos_rota = APIRouter()
 

@@ -20,7 +20,10 @@ app.include_router(competencias_rota, tags=["competencias"])
 # /perfis - DELETE                                                          => OK!
 # /perfis - PUT                                                             => OK!
 
-# CPF deve conter válidição e quando mandado com mascara deve ser retirada. => Pendente
+# extra
+# /associar-competencia - POST                                              => PENDENTE
+
+# CPF deve conter válidição e quando mandado com mascara deve ser retirada. => OK!
 # Data de Nascimento não pode permitir pessoas menores de 18 anos           => OK!
 # E-mail deve ter validação de tipo                                         => OK!
 # Formação pode ser mais de uma                                             => Pendente
@@ -32,6 +35,8 @@ app.include_router(competencias_rota, tags=["competencias"])
 # teste de integração                                                       => Pendente
 # docker                                                                    => Pendente
 # docker-compose                                                            => Pendente
+
+# migrations                                                                 => OK!
 
 # python -m uvicorn main:app --reload
 if __name__ == "__main__":

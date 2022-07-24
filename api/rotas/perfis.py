@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Body
-from config.db import connection
+from sql_app.database import connection
 from models.perfis import perfis
 from schemas.index import Perfil
 from exemplos.perfil import *

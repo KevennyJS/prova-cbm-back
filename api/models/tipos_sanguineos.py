@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String
-from config.db import meta
+from sql_app import meta
 
 tipo_sanguineo = Table('tipos_sanguineos', meta,
                        Column('id', Integer, primary_key=True),

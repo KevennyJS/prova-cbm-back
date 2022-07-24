@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String, ForeignKey
-from config.db import meta
+from sql_app import meta
 
 formacao = Table('formacao', meta,
                  Column('id', Integer, primary_key=True),

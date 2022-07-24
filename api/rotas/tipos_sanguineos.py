@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from config.db import connection
+from sql_app import connection
 
 tipos_sanguineos_rota = APIRouter()
 

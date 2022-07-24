@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, ForeignKey
-from config.db import meta
+from sql_app import meta
 
 competencias_perfil = Table('competencias_perfis', meta,
                  Column('competencia_id', Integer, ForeignKey('competencias.id')),

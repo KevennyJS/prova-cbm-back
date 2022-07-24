@@ -1,6 +1,6 @@
-from sqlalchemy import Table, Column, ForeignKey, ForeignKeyConstraint
+from sqlalchemy import Table, Column, ForeignKey
 from sqlalchemy import Integer, String, DateTime
-from config.db import meta
+from sql_app import meta
 
 perfis = Table('perfis', meta,
                Column('id', Integer, primary_key=True),
