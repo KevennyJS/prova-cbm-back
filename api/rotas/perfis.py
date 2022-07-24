@@ -16,8 +16,10 @@ async def read_data():
 
 @perfis_rota.get("/perfis/{id}")
 async def read_data(id: int):
-    return connection.execute(perfis.select().where(perfis.c.id == id)).first()
-
+    perfil_encontrado = connection.execute(perfis.select().where(perfis.c.id == id)).first()
+    if perfil_encontrado:
+        return perfil_encontrado
+    return JSONResponse(status_code=404, content={"message": "Perfil não encontrado"})
 
 @perfis_rota.post("/perfis")
 async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
@@ -25,7 +27,7 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
     if retornoValidacao != "":
         return JSONResponse(status_code=404, content={"message": retornoValidacao})
     else:
-        retorno = connection.execute(perfis.insert().values(
+        connection.execute(perfis.insert().values(
             tipos_sanguineo_id=perfil.tipos_sanguineo_id,
             signo_id=perfil.signo_id,
             cpf=perfil.cpf,
@@ -35,7 +37,7 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
             telefone=perfil.telefone,
             resumo=perfil.resumo
         ))
-        return {'message': f"Perfil cadastrado com sucesso {retorno}"}
+        return {'message': f"Perfil cadastrado com sucesso"}
 
 
 @perfis_rota.put("/perfis/{id}")
