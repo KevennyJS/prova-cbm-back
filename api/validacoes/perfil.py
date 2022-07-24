@@ -29,19 +29,25 @@ class PerfilValidacao():
         self.perfil.cpf = self.perfil.cpf.replace(".", "").replace("-", "")
         tamanho_cpf = len(self.perfil.cpf)
 
-        if tamanho_cpf != 11:
-            return False
-
-        elif self.perfil.cpf == self.perfil.cpf[::-1]:
+        if self.perfil.cpf == self.perfil.cpf[::-1]:
             return False
 
         elif tamanho_cpf == 11:
-            for i in range(9, 11):
-                soma_digitos = sum((self.perfil.cpf[num] * ((i + 1) - num) for num in range(0, i)))
-                digit = ((soma_digitos * 10) % 11) % 10
-                if digit != self.perfil.cpf[i]:
-                    return False
-            return True
+            cpf_original = [int(digito) for digito in self.perfil.cpf]
+
+            cpf_verificador = cpf_original[:9]
+
+            while len(cpf_verificador) < 11:
+                resto = sum([valor * (len(cpf_verificador) + 1 - index) for index, valor in enumerate(cpf_verificador)]) % 11
+
+                digito_verificador = 0 if resto <= 1 else 11 - resto
+
+                cpf_verificador.append(digito_verificador)
+
+            if cpf_verificador == cpf_original:
+                return True
+
+        return False
 
     def validar_idade(self):
         data_atual = datetime.now()

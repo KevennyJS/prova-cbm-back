@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from routes.index import *
+from rotas.index import *
 
 app = FastAPI(title="CBMSE API")
 
@@ -20,7 +20,7 @@ app.include_router(competencias_rota, tags=["competencias"])
 # /perfis - DELETE                                                          => OK!
 # /perfis - PUT                                                             => OK!
 
-# CPF deve conter válidição e quando mandado com mascara deve ser retirada. => OK!
+# CPF deve conter válidição e quando mandado com mascara deve ser retirada. => Pendente
 # Data de Nascimento não pode permitir pessoas menores de 18 anos           => OK!
 # E-mail deve ter validação de tipo                                         => OK!
 # Formação pode ser mais de uma                                             => Pendente
@@ -34,5 +34,5 @@ app.include_router(competencias_rota, tags=["competencias"])
 # docker-compose                                                            => Pendente
 
 # python -m uvicorn main:app --reload
-# if __name__ == "__main__":
-#     uvicorn.run(app, host="127.0.0.1", port=8000)
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8000)

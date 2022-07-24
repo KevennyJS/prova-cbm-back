@@ -12,3 +12,7 @@ api/routes/__pycache__/
 api/templates/__pycache__/
 
 api/validacoes/__pycache__/
+
+api/exemplos/__pycache__/
+
+api/rotas/__pycache__/
