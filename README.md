@@ -1,3 +1,4 @@
+
 # Prova CBMSE 2022
 
 Projeto desenvolvido para o processo de seleção
@@ -224,9 +225,36 @@ Body (JSON):
 
 ## Deploy
 
-Para fazer o deploy desse projeto rode
+Caso ainda não possua o Python instalado na sua maquina, Clique [Aqui](https://www.python.org/downloads/) para baixar e instalar a ultima versão.
+
+#### Local:
+
+
+
+O primeiro passo para rodar localmente o projeto é instalar as dependencias, para isso, rode:
 
 ```bash
-  npm run deploy
+  pip install requirements.txt
 ```
 
+Agora que o ambiente está com tudo instalado, rode:
+
+```bash
+  uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+pronto! Já pode começar a fazer os requests.
+
+#### Docker
+
+Com o terminal na raiz do projeto, execute para gerar a build do nosso docker:
+
+```bash
+  docker build -t cbmse .
+```
+
+após a build completa, é hora de iniciar o docker que acabamos de criar, rode:
+
+```bash
+  docker run -d --name cbmse_container -p 8000:8000 cbmse
+```
