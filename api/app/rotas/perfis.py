@@ -38,7 +38,7 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
     if retornoValidacao != "":
         return JSONResponse(status_code=404, content={"message": retornoValidacao})
     else:
-        retorno = connection.execute(perfis.insert().values(
+        connection.execute(perfis.insert().values(
             tipos_sanguineo_id=perfil.tipos_sanguineo_id,
             signo_id=perfil.signo_id,
             cpf=perfil.cpf,
@@ -48,7 +48,6 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
             telefone=perfil.telefone,
             resumo=perfil.resumo
         ))
-        print(f"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: {retorno}")
         return {'message': f"Perfil cadastrado com sucesso"}
 
 

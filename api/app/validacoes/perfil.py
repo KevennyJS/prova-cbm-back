@@ -73,7 +73,6 @@ class PerfilValidacao():
 
     def verificar_cpf_existente(self):
         competencias = connection.execute("SELECT * FROM perfis WHERE cpf = {}".format(self.perfil.cpf)).first()
-        print("comp: '", competencias, "'")
         if competencias is None:
             return True
         else:
