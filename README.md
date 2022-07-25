@@ -1,86 +1,232 @@
 # Prova CBMSE 2022
 
-Para concorrer a vaga o candidato terá que desenvolver uma aplicação api-rest 
-## Em qualquer framework/linguagem.
+Projeto desenvolvido para o processo de seleção
 
 
-### Tecnologias Recomendadas
-- PHP
-- Laravel
-- Cakephp
+## Autor
+
+- [@kevennyjs](https://www.github.com/kevennyjs)
 
 
-## Instruções da prova
+## Funcionalidades
 
-- O candidato deve fazer um **fork** desse repositório e criar sua estrutura de pastas.
-- Existe uma pasta **db** onde existe o DER do banco e o SQL com o schema e os inserts.
-- Após o projeto pronto o candidato deve fazer o *commit e push* para o seu repositório **não sendo necessário** solicitar um **pull-request** basta apenas responder o email _[lima.silva@sergipetec.org.br]()_ com assunto prova finalizada e o link do git
+- Signo
+- Tipo sanguineo
+- Instituicoes
+- Competencias
+- Perfis
+- Competencia
+- Competencia Perfil
+- Experiencia
+- Formação
+
+# OBS:
+#### Em atributos do tipo "datetime", você pode enviar valores em datetime como "2000-06-23T00:00:01.001Z" ou datas no formato "yyyymmdd" como "20200101"
+## Documentação da API
+
+#### Retorna todos os perfis
+
+```http
+  GET /perfis
+```
+
+#### Retorna todos os detalhes de um perfil, incluindo experiência, formação e competencias
+
+```http
+  GET /perfis/{id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `int` | **Obrigatório**. O ID do perfil que deseja buscar |
 
 
-## Projeto
+#### Cria um novo perfil
+```http
+  POST /perfis
+```
 
-- O Candidato deve criar uma API REST com as seguintes rotas
-  - /signos  - GET
-  - /tipo-sanguineos - GET
-  - /instituicoes - GET
-  - /competencias - GET
-  - /perfis - GET
-  - /perfis - POST
-  - /perfis - DELETE
-  - /perfis - PUT
-- Regras do request:
-  - **CPF** deve conter válidição e quando mandado com mascara deve ser retirada.
-  - **Data de Nascimento** não pode permitir pessoas menores de 18 anos
-  - **E-mail** deve ter validação de tipo
-  - **Formação** pode ser mais de uma
-  - **Experiência** pode ser mais de uma
-  - **Competencia** pode ser mais de uma
-  - **Sobre** é campo texto livre
-  - **Todos os campos são obrigatórios !!!!!**
+Body (JSON):
+
+```json
+  {
+    "tipos_sanguineo_id": 1,
+    "signo_id": 1,
+    "cpf": "12345678909",
+    "nome": "fulaninho junior",
+    "data_nascimento": "2000-06-23T00:00:01.001Z",
+    "email": "fulaninho@gmail.com",
+    "telefone": "7998232337",
+    "resumo": "olá, meu nome é fulaninho"
+  }
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `tipos_sanguineo_id`      | `int` | **Obrigatório**. O ID do tipo sanguineo (na tabela de tipo sanguineo) |
+| `signo_id`      | `int` | **Obrigatório**. O ID do signo (na tabela de signos) |
+| `cpf`      | `String` | **Obrigatório**. CPF para o perfil |
+| `nome`      | `String` | **Obrigatório**. Nome para o perfil |
+| `data_nascimento`      | `datetime` | **Obrigatório**. Data de nascimento usuario |
+| `email`      | `String` | **Obrigatório**. Email para o perfil |
+| `telefone`      | `String` | **Obrigatório**. Telefone para o perfil  |
+| `resumo`      | `String` | **Obrigatório**. Um breve resumo para o perfil |
 
 
+#### Atualiza um perfil existente
+```http
+  PUT /perfis/1
+```
 
-## Oque será avaliado?
-O desafio será avaliado através dos seguintes critérios.
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `int` | **Obrigatório**. O ID do perfil que deseja Atualizar |
 
-- Código bem estruturado
-- Habilidade com framework(se utilizar)
-- Habilidade em documentação(swagger)
-- Arquitetura do projeto
-- Migrations
-- Utilização de componentes,libs
-- Testes unitários
+Body (JSON):
 
-## Oque seria um plus
-- Teste de integração (cypress)
-- Docker
-- Docker-compose
+```json
+  {
+    "tipos_sanguineo_id": 1,
+    "signo_id": 1,
+    "cpf": "12345678909",
+    "nome": "Kevenny de Jesus Santos",
+    "data_nascimento": "2000-06-23T00:00:01.001Z",
+    "email": "kevennykeke@gmail.com",
+    "telefone": "7998836127",
+    "resumo": "olá, meu nome é kevenny"
+  }
+```
 
-## Boas Práticas
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `tipos_sanguineo_id`      | `int` | **Obrigatório**. Novo ID do tipo sanguineo (na tabela de tipo sanguineo) |
+| `signo_id`      | `int` | **Obrigatório**. Novo ID do signo (na tabela de signos) |
+| `cpf`      | `String` | **Obrigatório**. Novo CPF para o perfil |
+| `nome`      | `String` | **Obrigatório**. Novo nome para o perfil |
+| `data_nascimento`      | `datetime` | **Obrigatório**. Nova Data de nascimento usuario |
+| `email`      | `String` | **Obrigatório**. Novo Email para o perfil |
+| `telefone`      | `String` | **Obrigatório**. Novo Telefone para o perfil  |
+| `resumo`      | `String` | **Obrigatório**. Novo resumo para o perfil |
 
-- O código está bem estruturado?
-- O código está fluente na linguagem?
-- O código faz o uso correto de Design Patterns?
+```http
+  DELETE /perfis/{id}
+```
 
-## Documentação
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `int` | **Obrigatório**. O ID do perfil que deseja deletar |
 
-- O código foi entregue com um arquivo de README claro de como se guiar?
-- O código possui comentários pertinentes?
-- Os commits são pequenos e consistentes?
-- As mensagens de commit são claras?
 
-## Código Limpo
+#### Retorna todos os signos
 
-- O código possibilita expansão para novas funcionalidades?
-- O código é Don't Repeat Yourself?
-- O código é fácil de compreender?
+```http
+  GET /signos
+```
 
-## Links úteis
+#### Retorna todos os tipos sanguineos
 
-- [Design Patterns](https://refactoring.guru/pt-br/design-patterns/php)
-- [Laravel](https://laravel.com/)
-- [Swagger](https://editor.swagger.io/)
-- [Testes unitarios](https://pestphp.com/)
-- [PHP+Docker](https://blog.impulso.network/docker-e-docker-compose-com-php/)
-- [Git-flow](https://medium.com/trainingcenter/utilizando-o-fluxo-git-flow-e63d5e0d5e04)
-- [Semantic Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+```http
+  GET /tipo-sanguineos
+```
+
+#### Retorna todos as instituições
+
+```http
+  GET /instituicoes
+```
+
+#### Retorna todos as competencias
+
+```http
+  GET /competencias
+```
+
+#### Cria uma competencia perfil
+
+```http
+  POST /competencias-perfis
+```
+Body (JSON):
+
+```json
+  {
+      "competencia_id": 1,
+      "perfil_id": 1
+  }
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `competencia_id`      | `int` | **Obrigatório**. O ID da competencia (na tabela de competencias) |
+| `perfil_id`      | `int` | **Obrigatório**. O ID do perfil (na tabela de perfis) |
+
+
+#### Retorna todos as formações
+
+```http
+  GET /formacoes
+```
+
+#### Cria uma competencia perfil
+
+```http
+  POST /formacoes
+```
+Body (JSON):
+
+```json
+  {
+    "instituicao_id": 1,
+    "perfil_id": 1,
+    "nome": "Formacao 1"
+  }
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `instituicao_id`      | `int` | **Obrigatório**. O ID da instituição (na tabela de instituicoes) |
+| `perfil_id`      | `int` | **Obrigatório**. O ID do perfil (na tabela de perfis) |
+| `nome`      | `String` | **Obrigatório**. Nome da Formação |
+
+#### Retorna todos as Experiências
+
+```http
+  GET /experiencias
+```
+
+#### Cria uma competencia perfil
+
+```http
+  POST /experiencias
+```
+Body (JSON):
+
+```json
+  {
+    "perfil_id": 1,
+    "empresa": "Empresa 1",
+    "inicio": "20200101",
+    "fim": "20200101",
+    "atual_trabalho": 1,
+    "cargo": "Desenvolvedor Back End"
+  }
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `perfil_id`      | `int` | **Obrigatório**. O ID do perfil (na tabela de perfis) |
+| `empresa`      | `String` | **Obrigatório**. Nome da Empresa |
+| `inicio`      | `datetime` | **Obrigatório**. Data de inicio |
+| `fim`      | `datetime` | **Obrigatório**. Data de fim |
+| `atual_trabalho`      | `int` | **Obrigatório**. valor de verificação de trabalhando atualmente |
+| `cargo`      | `String` | **Obrigatório**. Cargo Atual |
+
+
+## Deploy
+
+Para fazer o deploy desse projeto rode
+
+```bash
+  npm run deploy
+```
+
