@@ -1,14 +1,17 @@
 import uvicorn
 from fastapi import FastAPI
+
+from rotas.competencia_perfil import competencia_perfil_rota
 from rotas.index import *
 
 app = FastAPI(title="CBMSE API")
 
-app.include_router(perfis_rota, tags=["perfis"])
-app.include_router(signos_rota, tags=["signos"])
-app.include_router(tipos_sanguineos_rota, tags=["tipos_sanguineos"])
-app.include_router(instituicoes_rota, tags=["instituicoes"])
-app.include_router(competencias_rota, tags=["competencias"])
+app.include_router(perfis_rota, tags=["Perfis"])
+app.include_router(signos_rota, tags=["Signos"])
+app.include_router(tipos_sanguineos_rota, tags=["Tipos sanguineos"])
+app.include_router(instituicoes_rota, tags=["Instituicoes"])
+app.include_router(competencias_rota, tags=["Competencias"])
+app.include_router(competencia_perfil_rota, tags=["Competencia Perfil"])
 
 # TODO: rotas
 # /signos - GET                                                             => OK!
@@ -21,7 +24,10 @@ app.include_router(competencias_rota, tags=["competencias"])
 # /perfis - PUT                                                             => OK!
 
 # extra
-# /associar-competencia - POST                                              => PENDENTE
+# /associar-competencia - POST                                              => OK!
+# Gerar Comando SQL para buscar dados de -
+# experiência, competendia e formação, no get de perfil                     => Pendente
+
 
 # CPF deve conter válidição e quando mandado com mascara deve ser retirada. => OK!
 # Data de Nascimento não pode permitir pessoas menores de 18 anos           => OK!
