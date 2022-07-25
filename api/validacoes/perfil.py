@@ -1,5 +1,6 @@
 from schemas.perfil import Perfil
 from datetime import datetime
+from sql_app.database import connection
 
 
 class PerfilValidacao():
@@ -7,7 +8,6 @@ class PerfilValidacao():
         self.perfil = perfil
 
     def validar_campos(self):
-        print(self.perfil)
         error_message = ""
         if self.perfil.cpf is None:
             error_message = "Insira um CPF para o perfil"
@@ -71,6 +71,14 @@ class PerfilValidacao():
         else:
             return True
 
+    def verificar_cpf_existente(self):
+        competencias = connection.execute("SELECT * FROM perfis WHERE cpf = {}".format(self.perfil.cpf)).first()
+        print("comp: '", competencias, "'")
+        if competencias is None:
+            return True
+        else:
+            return False
+
     def validar_perfil(self):
         error_message = ""
         if self.validar_campos() != "":
@@ -83,4 +91,6 @@ class PerfilValidacao():
             error_message = "Insira um email válido"
         elif self.validar_telefone() is False:
             error_message = "Insira um telefone válido"
+        elif self.verificar_cpf_existente() is False:
+            error_message = "O CPF já está cadastrado"
         return error_message

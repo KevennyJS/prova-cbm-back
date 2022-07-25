@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Body
 from sql_app.database import connection
-from models.perfis import perfis
+from models.index import perfis, formacoes, experiencias
 from schemas.index import Perfil
-from exemplos.perfil import *
+from exemplos.index import exemplo_add_perfil, exemplo_update_perfil
 from fastapi.responses import JSONResponse
 from validacoes.perfil import PerfilValidacao
 
@@ -17,9 +17,20 @@ async def read_data():
 @perfis_rota.get("/perfis/{id}")
 async def read_data(id: int):
     perfil_encontrado = connection.execute(perfis.select().where(perfis.c.id == id)).first()
+    competencias = connection.execute(
+        "SELECT * FROM competencias WHERE id IN (SELECT competencia_id FROM competencias_perfis WHERE perfil_id = {})".format(id)).fetchall()
+    formacoes_perfil = connection.execute(formacoes.select().where(formacoes.c.id == id)).fetchall()
+    experiencia_perfil = connection.execute(experiencias.select().where(experiencias.c.id == id)).fetchall()
+
     if perfil_encontrado:
-        return perfil_encontrado
+        return {
+            "perfil": perfil_encontrado,
+            "competencias": competencias,
+            "formacoes": formacoes_perfil,
+            "experiencias": experiencia_perfil
+        }
     return JSONResponse(status_code=404, content={"message": "Perfil não encontrado"})
+
 
 @perfis_rota.post("/perfis")
 async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
@@ -27,7 +38,7 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
     if retornoValidacao != "":
         return JSONResponse(status_code=404, content={"message": retornoValidacao})
     else:
-        connection.execute(perfis.insert().values(
+        retorno = connection.execute(perfis.insert().values(
             tipos_sanguineo_id=perfil.tipos_sanguineo_id,
             signo_id=perfil.signo_id,
             cpf=perfil.cpf,
@@ -37,6 +48,7 @@ async def write_data(perfil: Perfil = Body(exemplo_add_perfil)):
             telefone=perfil.telefone,
             resumo=perfil.resumo
         ))
+        print(f"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: {retorno}")
         return {'message': f"Perfil cadastrado com sucesso"}
 
 
