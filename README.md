@@ -41,10 +41,10 @@ Depois de instalado, você precisa definir as variaveis de acesso ao banco de da
   pip install requirements.txt
 ```
 
-Agora que o ambiente está com tudo instalado, rode:
+Agora que o ambiente está com tudo instalado, vá para "{raiz do projeto}/api/" e rode:
 
 ```bash
-  uvicorn main:app --host 0.0.0.0 --port 8000
+    python -m uvicorn app.main:app --reload
 ```
 
 pronto! Já pode começar a fazer os requests.
@@ -64,7 +64,13 @@ após a build completa, é hora de iniciar o docker que acabamos de criar, rode:
 ```
 
 # OBS:
-#### Em atributos do tipo "datetime", você pode enviar valores em datetime como "2000-06-23T00:00:01.001Z" ou datas no formato "yyyymmdd" como "20200101"
+#### 1- Link Para o Swagger(O Projeto precisa estar rodando): 
+http://seu-host:8000/docs
+
+Exemplo:
+http://127.0.0.1:8000/docs 
+#### 2- Para facilitar o uso, existe um arquivo "" que pode ser importado no "Postman", nele contem todos os requests organizados e documentados.
+#### 3- Em atributos do tipo "datetime", você pode enviar valores em datetime como "2000-06-23T00:00:01.001Z" ou datas no formato "yyyymmdd" como "20200101"
 ## Documentação da API
 
 #### Retorna todos os perfis

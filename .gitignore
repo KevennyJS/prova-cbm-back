@@ -18,3 +18,17 @@ api/exemplos/__pycache__/
 api/rotas/__pycache__/
 
 api/sql_app/__pycache__/
+
+api/app/exemplos/__pycache__/
+
+api/app/__pycache__/
+
+api/app/models/__pycache__/
+
+api/app/rotas/__pycache__/
+
+api/app/sql_app/__pycache__/
+
+api/app/schemas/__pycache__/
+
+api/app/validacoes/__pycache__/
