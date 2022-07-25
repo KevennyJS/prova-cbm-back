@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "67bcd5b1-e315-4785-b6fd-ddefe270f7a3",
+		"name": "Sergipetec",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13379562"
+	},
+	"item": [
+		{
+			"name": "Adicionar Perfil",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tipos_sanguineo_id\": 1,\n  \"signo_id\": 1,\n  \"cpf\": \"12345678909\",\n  \"nome\": \"Kevenny de Jesus Santos\",\n  \"data_nascimento\": \"2000-06-23T00:00:01.001Z\",\n  \"email\": \"kevennykeke@gmail.com\",\n  \"telefone\": \"7998836127\",\n  \"resumo\": \"olá, meu nome é kevenny\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Adicionar Perfil",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"tipos_sanguineo_id\": 1,\n  \"signo_id\": 1,\n  \"cpf\": \"12345678909\",\n  \"nome\": \"Kevenny de Jesus Santos\",\n  \"data_nascimento\": \"2000-06-23T00:00:01.001Z\",\n  \"email\": \"kevennykeke@gmail.com\",\n  \"telefone\": \"7998836127\",\n  \"resumo\": \"olá, meu nome é kevenny\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"tipos_sanguineo_id\": 1,\n        \"signo_id\": 1,\n        \"cpf\": \"08429681111\",\n        \"nome\": \"kevenny\",\n        \"data_nascimento\": \"2022-07-19\",\n        \"email\": \"kevennykeke@gmail.com\",\n        \"telefone\": \"7998836127\",\n        \"resumo\": \"olá, meu nome é kevenny\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obter Perfil",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obter Perfil",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"tipos_sanguineo_id\": 1,\n        \"signo_id\": 1,\n        \"cpf\": \"08429681111\",\n        \"nome\": \"kevenny\",\n        \"data_nascimento\": \"2022-07-19\",\n        \"email\": \"kevennykeke@gmail.com\",\n        \"telefone\": \"7998836127\",\n        \"resumo\": \"olá, meu nome é kevenny\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Atualizar Perfil",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tipos_sanguineo_id\": 1,\n  \"signo_id\": 1,\n  \"cpf\": \"12345670009\",\n  \"nome\": \"@Kevenny de Jesus Santos\",\n  \"data_nascimento\": \"2000-06-23T00:00:01.001Z\",\n  \"email\": \"kevennykeke@gmail.com\",\n  \"telefone\": \"7998836127\",\n  \"resumo\": \"olá, meu nome é kevenny\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Atualizar Perfil",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipos_sanguineo_id\": 1,\n  \"signo_id\": 1,\n  \"cpf\": \"12345670009\",\n  \"nome\": \"Kevenny de Jesus Santos\",\n  \"data_nascimento\": \"2000-06-23T00:00:01.001Z\",\n  \"email\": \"kevennykeke@gmail.com\",\n  \"telefone\": \"7998836127\",\n  \"resumo\": \"olá, meu nome é kevenny\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"tipos_sanguineo_id\": 1,\n        \"signo_id\": 1,\n        \"cpf\": \"12345670009\",\n        \"nome\": \"@Kevenny de Jesus Santos\",\n        \"data_nascimento\": \"2000-06-23\",\n        \"email\": \"kevennykeke@gmail.com\",\n        \"telefone\": \"7998836127\",\n        \"resumo\": \"olá, meu nome é kevenny\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Deletar Perfil",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Deletar Perfil",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"2"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"tipos_sanguineo_id\": 1,\n        \"signo_id\": 1,\n        \"cpf\": \"12345670009\",\n        \"nome\": \"@Kevenny de Jesus Santos\",\n        \"data_nascimento\": \"2000-06-23\",\n        \"email\": \"kevennykeke@gmail.com\",\n        \"telefone\": \"7998836127\",\n        \"resumo\": \"olá, meu nome é kevenny\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
