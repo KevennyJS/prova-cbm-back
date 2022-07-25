@@ -21,6 +21,48 @@ Projeto desenvolvido para o processo de seleção
 - Experiencia
 - Formação
 
+## Deploy
+
+Caso ainda não possua o Python instalado na sua maquina, Clique [AQUI](https://www.python.org/downloads/) para baixar e instalar a ultima versão.
+
+#### Local:
+
+
+
+O primeiro passo para rodar localmente o projeto é instalar as dependencias, para isso, rode:
+
+Depois de instalado, você precisa definir as variaveis de acesso ao banco de dados em "api > app > sql_app > database.py"
+
+
+***Lembrando, se você for rodar em docker, vai precisar conectar seu mysql ao docker, que irá gerar um host especifico para ser usado nas configurações do "DOCKFILE" do caminho acima, [AQUI](https://www.youtube.com/watch?v=1Zpr1vX0wqk) tem um tutorial de como você pode fazer isso, caso tenha duvidas.***
+
+
+```bash
+  pip install requirements.txt
+```
+
+Agora que o ambiente está com tudo instalado, rode:
+
+```bash
+  uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+pronto! Já pode começar a fazer os requests.
+
+#### Docker
+
+Com o terminal na raiz do projeto, execute para gerar a build do nosso docker:
+
+```bash
+  docker build -t cbmse .
+```
+
+após a build completa, é hora de iniciar o docker que acabamos de criar, rode:
+
+```bash
+  docker run -d --name cbmse_container -p 8000:8000 cbmse
+```
+
 # OBS:
 #### Em atributos do tipo "datetime", você pode enviar valores em datetime como "2000-06-23T00:00:01.001Z" ou datas no formato "yyyymmdd" como "20200101"
 ## Documentação da API
@@ -222,39 +264,3 @@ Body (JSON):
 | `atual_trabalho`      | `int` | **Obrigatório**. valor de verificação de trabalhando atualmente |
 | `cargo`      | `String` | **Obrigatório**. Cargo Atual |
 
-
-## Deploy
-
-Caso ainda não possua o Python instalado na sua maquina, Clique [Aqui](https://www.python.org/downloads/) para baixar e instalar a ultima versão.
-
-#### Local:
-
-
-
-O primeiro passo para rodar localmente o projeto é instalar as dependencias, para isso, rode:
-
-```bash
-  pip install requirements.txt
-```
-
-Agora que o ambiente está com tudo instalado, rode:
-
-```bash
-  uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-pronto! Já pode começar a fazer os requests.
-
-#### Docker
-
-Com o terminal na raiz do projeto, execute para gerar a build do nosso docker:
-
-```bash
-  docker build -t cbmse .
-```
-
-após a build completa, é hora de iniciar o docker que acabamos de criar, rode:
-
-```bash
-  docker run -d --name cbmse_container -p 8000:8000 cbmse
-```
