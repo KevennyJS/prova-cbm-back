@@ -270,3 +270,17 @@ Body (JSON):
 | `atual_trabalho`      | `int` | **Obrigatório**. valor de verificação de trabalhando atualmente |
 | `cargo`      | `String` | **Obrigatório**. Cargo Atual |
 
+
+## Testes
+
+Para executar testes, primeiramente você vai precisar instalar o PyTest:
+
+```html
+    pip install pytest
+```
+
+Pronto, agora você já pode executa-los, rode:
+
+```html
+    python -m pytest
+```
