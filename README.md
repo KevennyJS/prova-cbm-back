@@ -124,7 +124,7 @@ Body (JSON):
 
 #### Atualiza um perfil existente
 ```http
-  PUT /perfis/1
+  PUT /perfis/{id}
 ```
 
 | Parâmetro   | Tipo       | Descrição                                   |
