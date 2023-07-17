@@ -1,7 +1,7 @@
 
-# Prova CBMSE 2022
+# FastAPI Backend
 
-Projeto desenvolvido para o processo de seleção
+Projeto desenvolvido para fixar os conhecimentos de desenvolvimento de backend com python usando FAST API
 
 
 ## Autor
